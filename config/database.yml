@@ -20,6 +20,9 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: nguoidep
+  password: nguoidep
+  host: localhost
 
 development:
   <<: *default
@@ -83,3 +86,4 @@ production:
   database: nguoidep_production
   username: nguoidep
   password: <%= ENV['NGUOIDEP_DATABASE_PASSWORD'] %>
+  host: <%= ENV['NGUOIDEP_DATABASE_HOST'] %>
