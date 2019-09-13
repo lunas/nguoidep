@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_13_161431) do
+ActiveRecord::Schema.define(version: 2019_09_09_060924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,21 +62,6 @@ ActiveRecord::Schema.define(version: 2019_09_13_161431) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "ads", force: :cascade do |t|
-    t.bigint "page_id", null: false
-    t.bigint "company_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_ads_on_company_id"
-    t.index ["page_id"], name: "index_ads_on_page_id"
-  end
-
-  create_table "companies", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "issues", force: :cascade do |t|
     t.string "title"
     t.date "date"
@@ -93,12 +78,9 @@ ActiveRecord::Schema.define(version: 2019_09_13_161431) do
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "companies"
     t.index ["issue_id"], name: "index_pages_on_issue_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "ads", "companies"
-  add_foreign_key "ads", "pages"
   add_foreign_key "pages", "issues"
 end

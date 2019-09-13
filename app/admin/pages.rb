@@ -14,7 +14,7 @@ ActiveAdmin.register Page do
   # end
   #
 
-  permit_params :title, :company_ids, :image, :comment, :page_nr, :issue_id, :url
+  permit_params :title, :image, :comment, :page_nr, :issue_id, :url
 
   form partial: 'form'
 
