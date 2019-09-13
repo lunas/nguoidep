@@ -10,7 +10,11 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
+#
+gem 'semantic-ui-sass'
+gem "slim-rails"
 gem 'sass-rails', '~> 5'
+gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -56,3 +60,6 @@ gem "react-rails", "~> 2.6"
 gem 'activeadmin'
 gem 'devise'
 gem 'pundit' # manages authorization
+
+# to use Amazon S3 as file storage. See https://edgeguides.rubyonrails.org/active_storage_overview.html#amazon-s3-service
+gem "aws-sdk-s3", require: false
