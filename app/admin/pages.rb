@@ -14,8 +14,24 @@ ActiveAdmin.register Page do
   # end
   #
 
+  # belongs_to :issue
+
   permit_params :title, :image, :comment, :page_nr, :issue_id, :url
 
   form partial: 'form'
+
+  show do
+    attributes_table do
+      row :issue
+      row :page_nr
+      row :title
+      row :created_at
+      row :updated_at
+      row :image do |page|
+        image_tag(url_for(page.image))
+      end
+    end
+    active_admin_comments
+  end
 
 end

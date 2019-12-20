@@ -4,5 +4,7 @@
     = f.input :image, as: :file
     = f.input :issue
     = f.input :page_nr
-    = f.input :url
     = f.actions
+    - if @page.image.attachment
+      = link_to url_for(@page.image) do
+        = image_tag(url_for(@page.image))
