@@ -1788,6 +1788,11 @@ commander@^2.20.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.0.tgz#d58bb2b5c1ee8f87b0d340027e9e94e222c5a422"
   integrity sha512-7j2y+40w61zy6YC2iRNpUe/NwhNyoXrYpHMrSunaMG64nRnaf96zO/KMQR4OyN/UnE5KLyEBnKHd4aG3rskjpQ==
 
+commander@~2.20.3:
+  version "2.20.3"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
+  integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
+
 commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
@@ -5745,6 +5750,16 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-dom@^16.8.4:
+  version "16.12.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.12.0.tgz#0da4b714b8d13c2038c9396b54a92baea633fe11"
+  integrity sha512-LMxFfAGrcS3kETtQaCkTKjMiifahaMySFDn71fZUNpPHZQEzmk/GiAeIT8JSOrHB23fnuCOMruL2a8NYlw+8Gw==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.18.0"
+
 react-dom@^16.9.0:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
@@ -5755,10 +5770,29 @@ react-dom@^16.9.0:
     prop-types "^15.6.2"
     scheduler "^0.15.0"
 
+react-flip-page@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/react-flip-page/-/react-flip-page-1.6.0.tgz#a70576cac4ad349380ea495b011d420338a37af3"
+  integrity sha512-K3+XmGPFMHi3zujCtPjKNxWussZu468qP7CwqFqehNPeBaZZfJgZnKxXufMTZ83IWHOkjsRrFZlGxteqW1ct7w==
+  dependencies:
+    prop-types "^15.6.2"
+    react "^16.8.4"
+    react-dom "^16.8.4"
+    uglifyjs-webpack-plugin "^2.0.0"
+
 react-is@^16.8.1:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha512-tJBzzzIgnnRfEm046qRcURvwQnZVXmuCbscxUO5RWrGTXpon2d4c8mI0D8WE6ydVIm29JiLB6+RslkIvym9Rjw==
+
+react@^16.8.4:
+  version "16.12.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
+  integrity sha512-fglqy3k5E+81pA8s+7K0/T3DBCF0ZDOher1elBFzF7O6arXJgzyu/FW+COxFvAWXJoJN9KIZbT2LXlukwphYTA==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
 
 react@^16.9.0:
   version "16.9.0"
@@ -6101,6 +6135,14 @@ scheduler@^0.15.0:
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.15.0.tgz#6bfcf80ff850b280fed4aeecc6513bc0b4f17f8e"
   integrity sha512-xAefmSfN6jqAa7Kuq7LIJY0bwAPG3xlCj0HMEBQk1lxYiDKZscY2xJ5U/61ZTrYbmNQbXa+gc7czPkVo11tnCg==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
+scheduler@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.18.0.tgz#5901ad6659bc1d8f3fdaf36eb7a67b0d6746b1c4"
+  integrity sha512-agTSHR1Nbfi6ulI0kYNK0203joW2Y5W4po4l+v03tOoiJKpTBbxpNhWDvqc/4IcOw+KLmSiQLTasZ4cab2/UWQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -6843,6 +6885,29 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+uglify-js@^3.6.0:
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.7.2.tgz#cb1a601e67536e9ed094a92dd1e333459643d3f9"
+  integrity sha512-uhRwZcANNWVLrxLfNFEdltoPNhECUR3lc+UdJoG9CBpMcSnKyWA94tc3eAujB1GcMY5Uwq8ZMp4qWpxWYDQmaA==
+  dependencies:
+    commander "~2.20.3"
+    source-map "~0.6.1"
+
+uglifyjs-webpack-plugin@^2.0.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-2.2.0.tgz#e75bc80e7f1937f725954c9b4c5a1e967ea9d0d7"
+  integrity sha512-mHSkufBmBuJ+KHQhv5H0MXijtsoA1lynJt1lXOaotja8/I0pR4L9oGaPIZw+bQBOFittXZg9OC1sXSGO9D9ZYg==
+  dependencies:
+    cacache "^12.0.2"
+    find-cache-dir "^2.1.0"
+    is-wsl "^1.1.0"
+    schema-utils "^1.0.0"
+    serialize-javascript "^1.7.0"
+    source-map "^0.6.1"
+    uglify-js "^3.6.0"
+    webpack-sources "^1.4.0"
+    worker-farm "^1.7.0"
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"

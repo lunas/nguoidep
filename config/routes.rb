@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :ads
+
+  root 'issues#index'
+
   resources :pages
-  resources :companies
   resources :issues
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
