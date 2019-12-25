@@ -56,6 +56,7 @@ group :test do
 end
 
 gem "react-rails", "~> 2.6"
+gem 'active_model_serializers'
 
 gem 'activeadmin'
 gem 'devise'
