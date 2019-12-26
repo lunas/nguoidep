@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import PropTypes from "prop-types";
 import Issues from "./Issues";
 import Pages from "./Pages";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -22,20 +23,23 @@ function Magazine(props) {
     const classes = useStyles();
 
     return (
-        <div id="magazine" className={classes.root}>
-            <Grid container spacing={3}>
-                <Grid item xs={3}>
-                    <Issues
-                        issues={props.issues}
-                        currentIssueId={currentIssue.id}
-                        setCurrentIssue={setCurrentIssue}
-                    />
+        <React.Fragment>
+            <CssBaseline />
+            <div id="magazine" className={classes.root}>
+                <Grid container spacing={3}>
+                    <Grid item xs={3}>
+                        <Issues
+                            issues={props.issues}
+                            currentIssueId={currentIssue.id}
+                            setCurrentIssue={setCurrentIssue}
+                        />
+                    </Grid>
+                    <Grid item xs={9}>
+                        <Pages issue={currentIssue} />
+                    </Grid>
                 </Grid>
-                <Grid item xs={9}>
-                    <Pages issue={currentIssue} />
-                </Grid>
-            </Grid>
-        </div>
+            </div>
+        </React.Fragment>
     )
 }
 
