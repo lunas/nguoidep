@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 function Issues(props) {
     return (
         <React.Fragment>
-            <ul>
+            <ul className="issues">
             {props.issues.map(issue => (
                <li key={issue.id}
                    className={props.currentIssueId === issue.id ? 'currentIssue' : ''}

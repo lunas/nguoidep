@@ -34,7 +34,7 @@ function Magazine(props) {
                             setCurrentIssue={setCurrentIssue}
                         />
                     </Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={9} className="pages">
                         <Pages issue={currentIssue} />
                     </Grid>
                 </Grid>

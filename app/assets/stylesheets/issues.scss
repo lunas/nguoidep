@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.currentIssue {
-  font-weight: bolder;
+.issues {
+  font-size: 1.5em;
+
+  .currentIssue {
+    font-weight: bolder;
+    background-color: white;
+    width: 120%;
+  }
 }

@@ -9,6 +9,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import Grid from "@material-ui/core/Grid";
 
 
 const useStyles = makeStyles(theme => ({
@@ -41,8 +42,6 @@ function Pages(props) {
 
     return (
         <React.Fragment>
-            <h2>Pages for issue {props.issue.title}</h2>
-
             <FormControl className={classes.formControl}>
                 <InputLabel id="page-nr-label">Go to page</InputLabel>
                 <Select
@@ -58,7 +57,6 @@ function Pages(props) {
                     ))}
                 </Select>
             </FormControl>
-
             <div style={{ width: '100%', maxWidth: '1400px' }}>
                 <FlipPage
                     orientation="horizontal"
