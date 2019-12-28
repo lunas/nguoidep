@@ -8,8 +8,10 @@ function Issues(props) {
             {props.issues.map(issue => (
                <li key={issue.id}
                    className={props.currentIssueId === issue.id ? 'currentIssue' : ''}
-                   onClick={() => props.setCurrentIssue(issue)} >
-                   {issue.title}
+               >
+                   <a href="#" onClick={() => props.setCurrentIssue(issue)}>
+                       {issue.title}
+                   </a>
                </li>
            ))}
            </ul>
