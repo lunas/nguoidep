@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title
+      | Nguoidep
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body.container
+    header.nguoidep
+      .bar.clearfix
+        .home-title
+          = link_to 'Người Đẹp Magazine, Inc.', root_path
+        .menu
+          .box
+            p.viet
+              = link_to 'Tạp Chí', issues_path
+            p.engl
+              = link_to 'Magazine Issues', issues_path
+          .box
+            p.viet
+              = link_to 'Liên Lạc', "/contact"
+            p.engl
+              = link_to 'Contact', "/contact"
+          .box
+            p.viet
+              = link_to 'Đăng Quảng Cáo', "advertising"
+            p.engl
+              = link_to 'Advertising Information', "advertising"
+    section.nguoidep
+      = yield
+    footer.nguoidep
+      .bar.container
+        |  Copyright 2013 NGUOI DEP MAGAZINE 

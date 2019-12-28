@@ -4,10 +4,26 @@ import {getPages} from "../api/pages";
 import FlipPage from "react-flip-page"
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+
+const useStyles = makeStyles(theme => ({
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+    }
+}));
 
 function Pages(props) {
 
+    const classes = useStyles();
+
     const [pages, setPages] = useState([]);
+    const [pageIndex, setPageIndex] = React.useState(1);
     const [flipPage, setFlipPage] = useState({});
 
     useEffect(() => {
@@ -18,10 +34,32 @@ function Pages(props) {
     const prevLink = (index) => (index === 0) ? '' : <a>previous</a>;
     const nextLink = (index) => (index === pages.length - 1) ? '' : <a>next</a>;
 
+    const changePageNr = event => {
+        setPageIndex(event.target.value);
+        flipPage.gotoPage(event.target.value - 1);
+    };
+
     return (
         <React.Fragment>
             <h2>Pages for issue {props.issue.title}</h2>
-            <div style={{ width: '100%' }}>
+
+            <FormControl className={classes.formControl}>
+                <InputLabel id="page-nr-label">Go to page</InputLabel>
+                <Select
+                    labelId="page-nr-label"
+                    id="page-nr-select"
+                    value={pageIndex}
+                    onChange={changePageNr}
+                >
+                    {pages.map( (page, index) => (
+                        <MenuItem key={page.id} value={page.page_nr} selected={page.page_nr===1}>
+                            {page.page_nr}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+
+            <div style={{ width: '100%', maxWidth: '1400px' }}>
                 <FlipPage
                     orientation="horizontal"
                     uncutPages={true}

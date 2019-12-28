@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  root 'issues#index'
+  root to: 'home#index'
+  get '/issues',      to: 'issues#index'
+  get "/contact",     to: "home#contact"
+  get "/advertising", to: "home#advertising"
 
   resources :issues
 
@@ -9,6 +12,8 @@ Rails.application.routes.draw do
       resources :pages, shallow: true
     end
   end
+
+
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 

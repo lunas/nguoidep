@@ -10,6 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *   // = xxrequire_tree .
  *= require_self
  */
+
+@import "materialize/components/color-variables";
+$primary-color: color("green", "lighten-2") !default;
+$secondary-color: color("yellow", "base") !default;
+@import "materialize";
+
+@import "issues";
+@import "layout";
+@import "pages";

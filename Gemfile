@@ -14,6 +14,8 @@ gem 'puma', '~> 3.11'
 gem 'semantic-ui-sass'
 gem "slim-rails"
 gem 'sass-rails', '~> 5'
+gem 'materialize-sass', '~> 1.0.0'
+
 gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
