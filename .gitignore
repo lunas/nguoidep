@@ -6,6 +6,8 @@
 
 .idea
 .env
+.env.production
+
 
 # Ignore bundler config.
 /.bundle
