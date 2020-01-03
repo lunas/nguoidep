@@ -84,6 +84,6 @@ test:
 production:
   <<: *default
   database: nguoidep_production
-  username: nguoidep
-  password: <%= ENV['NGUOIDEP_DATABASE_PASSWORD'] %>
-  host: <%= ENV['NGUOIDEP_DATABASE_HOST'] %>
+  username: <%= Rails.application.credentials[:NGUOIDEP_DATABASE_USER] %>
+  password: <%= Rails.application.credentials[:NGUOIDEP_DATABASE_PASSWORD] %>
+  host: localhost

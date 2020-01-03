@@ -19,6 +19,15 @@ Things you may want to cover:
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Deployment instructions
+
+Deployed on Hetzner, 159.69.218.80, running Ubuntu 18.04
+
+Stack: 
+see https://www.phusionpassenger.com/docs/tutorials/deploy_to_production/installations/oss/ownserver/ruby/apache/
+
+- Webserver: apache
+- App server: Passenger
+- 
 
 * ...
