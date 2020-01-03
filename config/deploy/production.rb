@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
+# server "nguoidep.hoatruong.com", user: "lukas", roles: %w{app db web} #, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
@@ -59,3 +59,20 @@ server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_va
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+# if code to deploy is not on master, uncomment:
+set :branch, 'master'
+
+# These variables exist for the time of the capistrano session only!
+# set :default_env, fetch(:default_env).merge( {
+#                                               'PRODUCTION_DB_USER' => ENV['PRODUCTION_DB_USER'],
+#                                               'PRODUCTION_DB_PASSWORD' => ENV['PRODUCTION_DB_PASSWORD']
+                                               # 'PRODUCTION_SMTP_USER' => ENV['PRODUCTION_SMTP_USER'],
+                                               # 'PRODUCTION_SMTP_PASSWORD' => ENV['PRODUCTION_SMTP_PASSWORD']
+#                                           })
+
+
+set :stage, :production
+set :rails_env, :production
+
+server "#{fetch(:deploy_user)}@159.69.218.80", roles: %w{web app db}, primary: true
