@@ -26,3 +26,11 @@
 #           metadata
 #           byte_size
 #           checksum
+#
+#
+# Scheint nicht moeglich, die URL in ActiveStorage zu definieren, d.h. man kann
+# sie nicht einfach auf bestehende Pfade in s3 zeigen lassen :-(
+# Daher also
+# 1. von s3 Carrierwave Pfad downloaden
+# 2. neue Modell (Page) Instanz erstellen und dazugehoerendes Bild uploaden:
+# https://www.stefanwienert.de/blog/2018/11/05/activestorage-migrating-from-carrierwave-attachment-pointers/

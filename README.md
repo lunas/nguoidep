@@ -23,6 +23,32 @@ Page images are stored in an S3 bucket on aws.
 
 * Services (job queues, cache servers, search engines, etc.)
 
+### Setup
+
+- as Postgresql superuser, create user `nguidep` and the database development and test 
+  database:
+  
+      sudo su postgres # become postgres superuser 
+      psql             # start db client
+      # in psql: 
+      CREATE ROLE nguoidep WITH LOGIN ENCRYPTED PASSWORD 'password';
+      CREATE DATABASE nguoidep_development OWNER nguoidep;
+      CREATE DATABASE nguoidep_test OWNER nguoidep;
+      \q #             to exit
+      
+- Run migrations
+  
+      bundle exec rails db:migrate
+      
+- start rails:
+
+      bundle exec rails s
+      
+- start webpack dev server in root directory:
+
+      ./bin/webpack-dev-server
+      
+            
 ## Deployment instructions
 
 Deployed on Hetzner, 159.69.218.80, running Ubuntu 18.04
@@ -56,6 +82,13 @@ This socket address is also in `credentials.yml.enc` and read from their into
 
 Should it ever change on the Hetzner server, adapt it in the `credentials.yml.enc`.
 
+To access the DB on the production server directly, locally: 
+
+     sudo gitlab-psql -d nguoidep_production
+     
+or via psql:
+
+     psql -U nguoidep -d nguoidep_production -h [see path to socket in credentials]
 ### Apache config
 
 The apache configuration file is in
