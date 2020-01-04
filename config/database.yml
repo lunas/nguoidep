@@ -86,4 +86,4 @@ production:
   database: nguoidep_production
   username: <%= Rails.application.credentials[:NGUOIDEP_DATABASE_USER] %>
   password: <%= Rails.application.credentials[:NGUOIDEP_DATABASE_PASSWORD] %>
-  host: localhost
+  host: <%= Rails.application.credentials[:NGUOIDEP_DATABASE_HOST] %>

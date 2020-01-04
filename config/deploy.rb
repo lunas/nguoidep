@@ -2,6 +2,9 @@
 set :application, "nguoidep"
 set :repo_url, 'git@github.com:lunas/nguoidep.git'
 
+set :rbenv_type, :user # or :system, depends on your rbenv setup
+set :rbenv_ruby, '2.6.5'
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -19,7 +22,8 @@ set :repo_url, 'git@github.com:lunas/nguoidep.git'
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml",  'config/secrets.yml'
+append :linked_files,
+       "config/database.yml",  'config/credentials.yml.enc', 'config/master.key'
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"

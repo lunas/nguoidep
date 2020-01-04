@@ -75,4 +75,5 @@ set :branch, 'master'
 set :stage, :production
 set :rails_env, :production
 
-server "#{fetch(:deploy_user)}@159.69.218.80", roles: %w{web app db}, primary: true
+# server "lukas@159.69.218.80", roles: %w{web app db}, primary: true
+server '159.69.218.80', user: 'lukas', roles: %w{web app db}, primary: true
