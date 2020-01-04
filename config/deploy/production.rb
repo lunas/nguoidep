@@ -74,6 +74,7 @@ set :branch, 'master'
 
 set :stage, :production
 set :rails_env, :production
+set :default_env, { 'PASSENGER_INSTANCE_REGISTRY_DIR' => '/home/lukas/passenger_temp' }
 
 # server "lukas@159.69.218.80", roles: %w{web app db}, primary: true
 server '159.69.218.80', user: 'lukas', roles: %w{web app db}, primary: true
