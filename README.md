@@ -143,3 +143,19 @@ If no Passenger processes show up, try restarting Apache:
 
       sudo apache2ctl restart
 
+# Delete Isssues, Pages and their images
+
+Destroying an Issue also destroyes its Pages, and destroying a page also removes
+its (via ActiveStorage) attached image asyncronically, using ActiveJob.
+But to actually running the ActiveJobs, you need to start the workers:
+
+      rake jobs:workoff
+      
+Or       
+      rake jobs:work 
+  
+if you want the worker to keep running.
+
+   
+
+ 

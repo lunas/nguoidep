@@ -136,9 +136,15 @@ GEM
       activesupport
     childprocess (2.0.0)
       rake (< 13.0)
+    coderay (1.1.2)
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     crass (1.0.5)
+    delayed_job (4.1.8)
+      activesupport (>= 3.0, < 6.1)
+    delayed_job_active_record (4.1.4)
+      activerecord (>= 3.0, < 6.1)
+      delayed_job (>= 3.0, < 5)
     devise (4.7.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -220,6 +226,17 @@ GEM
     pg (1.1.4)
     polyamorous (2.3.0)
       activerecord (>= 5.0)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-byebug (3.8.0)
+      byebug (~> 11.0)
+      pry (~> 0.10)
+    pry-doc (1.0.0)
+      pry (~> 0.11)
+      yard (~> 0.9.11)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (4.0.1)
     puma (3.12.1)
     pundit (2.1.0)
@@ -356,6 +373,7 @@ GEM
     websocket-extensions (0.1.4)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    yard (0.9.24)
     zeitwerk (2.2.2)
 
 PLATFORMS
@@ -374,6 +392,7 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano-yarn
   capybara (>= 2.15)
+  delayed_job_active_record
   devise
   dotenv-rails
   image_processing (~> 1.2)
@@ -381,6 +400,10 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   materialize-sass (~> 1.0.0)
   pg (>= 0.18, < 2.0)
+  pry
+  pry-byebug
+  pry-doc
+  pry-rails
   puma (~> 3.11)
   pundit
   rails (~> 6.0.0)
