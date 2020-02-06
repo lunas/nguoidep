@@ -19,8 +19,9 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-function Pages(props) {
+function Pages({issue}) {
 
+    const issueId = issue.id;
     const classes = useStyles();
 
     const [pages, setPages] = useState([]);
@@ -28,9 +29,9 @@ function Pages(props) {
     const [flipPage, setFlipPage] = useState({});
 
     useEffect(() => {
-        getPages(props.issue.id)
+        getPages(issueIdd)
             .then(result => setPages(result.data));
-    }, [props.issue.id]);
+    }, [issueId]);
 
     const prevLink = (index) => (index === 0) ? '' : <a>previous</a>;
     const nextLink = (index) => (index === pages.length - 1) ? '' : <a>next</a>;

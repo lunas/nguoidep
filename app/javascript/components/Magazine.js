@@ -18,7 +18,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Magazine(props) {
-    const [currentIssue, setCurrentIssue] = useState(props.issues[0]);
+
+    // Note: issues are provided by the Rails view using the react_component helper;
+    //       I.e. they're already in the page, not dynamically loaded via Api.
+    const { issues } = props
+    const [currentIssue, setCurrentIssue] = useState(issues[0]);
+
+
 
     const classes = useStyles();
 
