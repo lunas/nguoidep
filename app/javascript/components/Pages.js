@@ -10,6 +10,7 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
+import {grey} from "@material-ui/core/colors";
 
 
 const useStyles = makeStyles(theme => ({
@@ -19,73 +20,97 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+Pages.propTypes = {
+    issue: PropTypes.shape({
+        id: PropTypes.number,
+        title: PropTypes.string
+    })
+};
+
 function Pages({issue}) {
 
     const issueId = issue.id;
     const classes = useStyles();
 
     const [pages, setPages] = useState([]);
-    const [pageIndex, setPageIndex] = React.useState(1);
+    const [pageIndex, setPageIndex] = React.useState(0);
     const [flipPage, setFlipPage] = useState({});
 
     useEffect(() => {
-        getPages(issueIdd)
-            .then(result => setPages(result.data));
+        getPages(issueId)
+            .then(result => {
+                setPages(result.data);
+                setPageIndex(0);
+            });
     }, [issueId]);
 
-    const prevLink = (index) => (index === 0) ? '' : <a>previous</a>;
-    const nextLink = (index) => (index === pages.length - 1) ? '' : <a>next</a>;
+    const prevClick = () => {
+        const newPageIndex = pageIndex - 1;
+        setPageIndex(newPageIndex);
+        flipPage.gotoPage(newPageIndex);
+    };
+    const nextClick = () => {
+        const newPageIndex = pageIndex + 1;
+        setPageIndex(newPageIndex);
+        flipPage.gotoPage(newPageIndex);
+    };
+    const prevLink = () => (pageIndex === 0)
+                     ? <a style={{ color: 'grey' }}>previous</a>
+                     : <a onClick={prevClick} href="#">previous</a>;
+
+    const nextLink = () => (pageIndex >= pages.length - 1 )
+                     ? <a style={{ color: 'grey' }}>next</a>
+                     : <a onClick={nextClick} href="#">next</a>;
 
     const changePageNr = event => {
-        setPageIndex(event.target.value);
+        setPageIndex(event.target.value - 1);
         flipPage.gotoPage(event.target.value - 1);
+    };
+
+    const onFlip = (flipPageIndex, direction) => {
+        setPageIndex(flipPageIndex);
     };
 
     return (
         <React.Fragment>
-            <FormControl className={classes.formControl}>
-                <InputLabel id="page-nr-label">Go to page</InputLabel>
-                <Select
-                    labelId="page-nr-label"
-                    id="page-nr-select"
-                    value={pageIndex}
-                    onChange={changePageNr}
-                >
-                    {pages.map( (page, index) => (
-                        <MenuItem key={page.id} value={page.page_nr} selected={page.page_nr===1}>
-                            {page.page_nr}
-                        </MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
+            <Box display="flex" flexDirection="row" justifyContent="space-between" m={1} p={1}>
+                {prevLink()}
+                <FormControl className={classes.formControl}>
+                    <InputLabel id="page-nr-label">Go to page</InputLabel>
+                    <Select
+                        labelId="page-nr-label"
+                        id="page-nr-select"
+                        value={pageIndex + 1}
+                        onChange={changePageNr}
+                    >
+                        {pages.map( (page, index) => (
+                            <MenuItem key={page.id} value={page.page_nr} selected={page.page_nr===1}>
+                                {page.page_nr}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+                {nextLink()}
+            </Box>
             <div style={{ width: '100%', maxWidth: '1400px' }}>
                 <FlipPage
                     orientation="horizontal"
                     uncutPages={true}
-                    height="1000"
+                    height="1500"
                     width="100%"
                     flipOnTouch
                     showTouchHint
                     showHint
                     perspective="100em"
                     animationDuration={400}
+                    onPageChange={onFlip}
                     ref={(component) => { setFlipPage(component); }}
                 >
                     {pages.map( (page, index) => (
-                        <article key={page.id} display="flex" >
-                            <Box display="flex"
-                                 flex-direction="row"
-                                 justifyContent="space-between"
-                            >
-                                <Box>{prevLink(index)}</Box>
-                                <Box>{page.title}, #{page.page_nr}</Box>
-                                <Box>{nextLink(index)}</Box>
-                            </Box>
-                            <Box>
-                                <img src={page.image_url} className="page-image" />
-                            </Box>
+                        <article key={page.id}>
+                            <p>{page.title} on page {page.page_nr}</p>
+                            <img src={page.image_url} className="page-image" />
                         </article>
-
                     ))}
                 </FlipPage>
             </div>
@@ -93,10 +118,4 @@ function Pages({issue}) {
     )
 }
 
-Pages.propTypes = {
-    issue: PropTypes.shape({
-        id: PropTypes.number,
-        title: PropTypes.string
-    })
-};
 export default Pages
