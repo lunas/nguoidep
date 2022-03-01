@@ -80,5 +80,5 @@ gem 'pundit' # manages authorization
 # to use Amazon S3 as file storage. See https://edgeguides.rubyonrails.org/active_storage_overview.html#amazon-s3-service
 gem "aws-sdk-s3", require: false
 
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 gem 'dotenv-rails', groups: [:development, :test]
